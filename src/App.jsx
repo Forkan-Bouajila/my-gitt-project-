@@ -1,36 +1,29 @@
-// Each story object contains: title → string, url → string, author → string, objectID → unique identifier (React key), points → number, num_comments → number
-// React key: objectID (unique & stable), APIs return structured JSON data
+// 1. It becomes hard to read, hard to debug, and error-prone
+// 2. HARDER
+//3. To make code:reusable, readable, maintainable, easier to debug
 
 const stories = [
   {
     objectID: "1",
-    title: "fresh book",
-    url: "https://freshmanbook.dev",
-    author: "TBS",
+    title: "Life is greateee",
+    url: "https://lifeisgreateee.com",
+    author: "Forkan Bouajila",
     points: 120,
     num_comments: 45,
   },
   {
     objectID: "2",
-    title: "soph book",
-    url: "https://sophomore.org",
-    author: "TBS",
-    points: 150,
+    title: "life is hard",
+    url: "https://lifeishard.com",
+    author: "Forkan Bouajila",
+    points: 95,
     num_comments: 30,
   },
-  {
-  objectID: "3",
-  title: "Junior book",
-  url: "https://juniorbook.com",
-  author: "TBS",
-  points: 200,
-  num_comments: 80,
-}
 ];
-
-function App() {
-  console.log(stories[0]); 
-
+functio Header() {
+  return <h1> Forkan new app </h1>;
+}
+function List() {
   return (
     <div>
       {stories.map((story) => (
@@ -48,5 +41,26 @@ function App() {
     </div>
   );
 }
+// 1. Because stories is global scope, outside all components
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <Search />
+      <List />
+    </div>
+  );
+}
 
 export default App;
+function Search() {
+  return (
+    <div>
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
+    </div>
+  );
+}
+// List handles rendering stories
+// Search handles user input UI
