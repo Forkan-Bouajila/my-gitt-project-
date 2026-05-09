@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import InputWithLabel from './components/InputWithLabel';
-import List from './components/List';
+import List from './List';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState(() => {
@@ -10,39 +10,39 @@ function App() {
 
   const initialStories = [
     {
-      title: 'React: A JavaScript library for building user interfaces',
-      url: 'https://reactjs.org/',
-      author: 'Facebook',
-      points: 1234,
-      comments: 567,
+      title: 'Python: A versatile programming language',
+      url: 'https://python.org/',
+      author: 'Guido van Rossum',
+      points: 1500,
+      comments: 800,
     },
     {
-      title: 'Vue.js: The Progressive JavaScript Framework',
-      url: 'https://vuejs.org/',
-      author: 'Evan You',
-      points: 890,
-      comments: 234,
+      title: 'JavaScript: The language of the web',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+      author: 'Brendan Eich',
+      points: 1200,
+      comments: 600,
     },
     {
-      title: 'Angular: One framework, Mobile & desktop',
-      url: 'https://angular.io/',
-      author: 'Google',
-      points: 456,
-      comments: 123,
+      title: 'Git: Version control system',
+      url: 'https://git-scm.com/',
+      author: 'Linus Torvalds',
+      points: 950,
+      comments: 400,
     },
     {
-      title: 'Svelte: Cybernetically enhanced web apps',
-      url: 'https://svelte.dev/',
-      author: 'Rich Harris',
-      points: 345,
-      comments: 78,
+      title: 'Docker: Containerization platform',
+      url: 'https://docker.com/',
+      author: 'Docker Inc.',
+      points: 1100,
+      comments: 500,
     },
     {
-      title: 'Next.js: The React Framework for Production',
-      url: 'https://nextjs.org/',
-      author: 'Vercel',
-      points: 789,
-      comments: 345,
+      title: 'Node.js: JavaScript runtime',
+      url: 'https://nodejs.org/',
+      author: 'Ryan Dahl',
+      points: 1300,
+      comments: 700,
     },
   ];
 
