@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Item({ story }) {
+function Item({ story, onRemoveStory }) {
   return (
     <div className="item">
       <h3>
@@ -13,6 +13,7 @@ function Item({ story }) {
         <span>{story.points} points</span>
         <span> {story.comments} comments</span>
       </div>
+      <button onClick={() => onRemoveStory(story)}>Remove</button>
     </div>
   );
 }

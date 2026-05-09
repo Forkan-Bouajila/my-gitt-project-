@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import List from './List';
-import Search from './Search';
+import InputWithLabel from './components/InputWithLabel';
+import List from './components/List';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState(() => {
@@ -8,7 +8,7 @@ function App() {
     return savedSearch || '';
   });
 
-  const stories = [
+  const initialStories = [
     {
       title: 'React: A JavaScript library for building user interfaces',
       url: 'https://reactjs.org/',
@@ -46,12 +46,18 @@ function App() {
     },
   ];
 
+  const [stories, setStories] = useState(initialStories);
+
   const filteredStories = stories.filter((story) =>
     story.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleRemoveStory = (storyToRemove) => {
+    setStories(stories.filter((story) => story.title !== storyToRemove.title));
   };
 
   useEffect(() => {
@@ -61,8 +67,15 @@ function App() {
   return (
     <div className="app">
       <h1>Hacker News Stories</h1>
-      <Search searchTerm={searchTerm} onSearch={handleSearch} />
-      <List stories={filteredStories} />
+      <InputWithLabel
+        id="search"
+        value={searchTerm}
+        onInputChange={handleSearch}
+        type="text"
+      >
+        <strong>Search:</strong>
+      </InputWithLabel>
+      <List stories={filteredStories} onRemoveStory={handleRemoveStory} />
     </div>
   );
 }
