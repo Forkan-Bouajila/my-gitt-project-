@@ -10,7 +10,7 @@ function Item({ story }) {
       </h3>
       <div className="meta">
         <span>By: {story.author}</span>
-        <span> {story.points} points</span>
+        <span>{story.points} points</span>
         <span> {story.comments} comments</span>
       </div>
     </div>

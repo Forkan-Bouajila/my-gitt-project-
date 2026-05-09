@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from './List';
 import Search from './Search';
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(() => {
+    const savedSearch = localStorage.getItem('search');
+    return savedSearch || '';
+  });
 
   const stories = [
     {
@@ -51,7 +54,9 @@ function App() {
     setSearchTerm(event.target.value);
   };
 
-  console.log('App component re-rendered');
+  useEffect(() => {
+    localStorage.setItem('search', searchTerm);
+  }, [searchTerm]);
 
   return (
     <div className="app">
